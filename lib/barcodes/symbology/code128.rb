@@ -110,7 +110,9 @@ module Barcodes
       
       # Data + checksum + stop character
       def formatted_data
-        self._prepared_data + self.checksum + "\xFF"
+        self._prepared_data.force_encoding(Encoding::UTF_8) + 
+        self.checksum.force_encoding(Encoding::UTF_8) + 
+        "\xFF".force_encoding(Encoding::UTF_8)
       end
       
       # Data encoded as 1's and 0's using three code sets
