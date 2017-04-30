@@ -94,20 +94,22 @@ module Barcodes
       else
         raise ArgumentError, 'Unsupported symbology'
       end
+    end # create
       
-      # Creates a new barcode of type <symbology> with given
-      # options and renders barcode.
-      #
-      # Optionally takes <filename>. If no
-      # filename is given rendering will be outputted as a
-      # string.
-      #
-      # Uses PDF renderer by default.
-      # 
-      # See Barcodes::Symbology::Base for options
-      def render(symbology, filename=nil, options={})
-        Barcodes::Renderer::Pdf.new(self.create(symbology, options)).render(filename)
-      end
+    # Creates a new barcode of type <symbology> with given
+    # options and renders barcode.
+    #
+    # Optionally takes <filename>. If no
+    # filename is given rendering will be outputted as a
+    # string.
+    #
+    # Uses PDF renderer by default.
+    # 
+    # See Barcodes::Symbology::Base for options
+    def render(symbology, filename=nil, options={})
+      Barcodes::Renderer::Pdf.new(self.create(symbology, options)).render(filename)
     end
-  end
+
+  end # class << self
+
 end
