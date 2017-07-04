@@ -125,7 +125,7 @@ module Barcodes
             index += 1
           end
           
-          value = 10 - (sum % 10)
+          value = (10 - (sum % 10)) % 10
           
           return value.to_s
         end
